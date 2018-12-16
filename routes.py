@@ -46,7 +46,7 @@ def add_user():
             copay_or_coinsurance = request.form['copay_or_coinsurance']
             personal_spending_per_year = request.form['personal_spending_per_year']
             income = request.form['income']
-            new_user = User(username=username, password=password, first_name=first_name, last_name=last_name, state=state, zipcode=zipcode, age=age, gender=gender, drug_type=drug_type, use_duration=use_duration, med_insurer=med_insurer, year_signed_up=year_signed_up, years_from_first_litigation=years_from_first_litigation, copay_or_coinsurance=copay_or_coinsurance,personal_spending_per_year=personal_spending_per_year, estimated_opioid_spending_per_year=estimated_opioid_spending_per_year,income=income)
+            new_user = User(username=username, password=password, first_name=first_name, last_name=last_name, state=state, zipcode=zipcode, age=age, gender=gender, drug_type=drug_type, use_duration=use_duration, med_insurer=med_insurer, year_signed_up=year_signed_up, years_from_first_litigation=years_from_first_litigation, copay_or_coinsurance=copay_or_coinsurance,personal_spending_per_year=personal_spending_per_year, income=income)
             #new_user = User(username=username, first_name=first_name, last_name=last_name,address=address, city=city, state=state, zipcode=zipcode, insurancetype=insurancetype, age=age)
             db.session.add(new_user)
             db.session.commit()
