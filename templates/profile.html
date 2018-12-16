@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<style>
+  p { color: #333333; font-family: Georgia, serif; font-size: 18px; line-height: 28px; margin: 0 0 28px; }
+  
+  
+  </style>
 <header class="masthead d-flex">
       <div class="container text-center my-auto">
        
@@ -17,10 +21,12 @@
               background-color:#ffffff55;
               -moz-border-radius: 5px;
               -webkit-border-radius: 5px;">
-              {% for p in posts %}
-                <p class="mb-1">Author@{{ p.author }}: {{ p.content }}</p>
-              {% endfor %}
+              <div>
 
+                <p style="text-align: left;">
+              This estimation is based on a few characteristics that you have shared during the sign-up process. As cutting-edge as the machine learning technique we apply here to estimate your settlement, the data are imperfect (we use tobacco settlement data to estimate your opioid abuse settlement) and the underlying assumptions are highly theoretical. Therefore, please view this settlement as simply a work in progress and by no means a definitive measure of your damage nor Defendants’ liabilities. 
+            </p>
+          </div>
             </div>
              <br>
           </div>
