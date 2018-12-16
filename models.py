@@ -22,3 +22,4 @@ class User(db.Model):
     personal_spending_per_year = db.Column(db.Float, nullable=False)
     total_spending = db.Column(db.Float, nullable=False)
     income = db.Column(db.Float, nullable=False)
+    est_settle = db.Column(db.Float, nullable=False)

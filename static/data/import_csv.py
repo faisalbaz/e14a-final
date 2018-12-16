@@ -5,8 +5,8 @@ import psycopg2
 import pandas as pd
 
 #conn=psycopg2.connect("host = localhost dbname=final user=postgres")
-#conn = psycopg2.connect("host=localhost dbname=final user=postgres password=password")
-conn = psycopg2.connect("host=ec2-184-72-239-186.compute-1.amazonaws.com dbname=dbsjd37pc4s73g user=oaboomcnxixcru password=ef8e4c6683a6634268058a2517a366100f5b1e7fa6004a07eb0f98e14b39f65b")
+conn = psycopg2.connect("host=localhost dbname=final user=postgres password=password")
+#conn = psycopg2.connect("host=ec2-184-72-239-186.compute-1.amazonaws.com dbname=dbsjd37pc4s73g user=oaboomcnxixcru password=ef8e4c6683a6634268058a2517a366100f5b1e7fa6004a07eb0f98e14b39f65b")
 cur=conn.cursor()
 
 
@@ -27,15 +27,15 @@ for idx, u in users.iterrows():
 
 
 #2. Deal with Opioid consumption by state
-consumption_state=pd.read_csv('consumption_state.csv',index_col=0)
-
-
-for idx, u in consumption_state.iterrows():
-	cur.execute('''INSERT into consumption_state (state, drug_name, year, grams)
-				VALUES (%s, %s, %s, %s)''',
-				(u.state, u.drug_name, u.year, u.grams))
-
-	conn.commit()
+# consumption_state=pd.read_csv('consumption_state.csv',index_col=0)
+#
+#
+# for idx, u in consumption_state.iterrows():
+# 	cur.execute('''INSERT into consumption_state (state, drug_name, year, grams)
+# 				VALUES (%s, %s, %s, %s)''',
+# 				(u.state, u.drug_name, u.year, u.grams))
+#
+# 	conn.commit()
 
 cur.close()
 conn.close()

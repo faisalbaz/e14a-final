@@ -1,19 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-<script src="http://d3js.org/d3.v4.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <header>
   <div class="container text-center my-auto">
-       
+
     {% if session_username is defined %}
-    
-    <h1 class="mb-1">Hi, {{ session_username }} !</h1>
-    
+
+      <h1 class="mb-1">Hi, {{ session_username }}!</h1>
+
     {% else %}
+      <h1 class="mb-1">Welcome! </h1>
     {% endif %}
-    <h1 class="mb-1">Welcome, {{ session_username }} ! </h1>
-            
-          <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
     <header class="masthead d-flex">
       <div class="container text-center my-auto">
@@ -35,8 +34,8 @@
             Around 66% of the more than 63,600 drug overdose deaths in 2016 involved an opioid.
             In 2016, the number of overdose deaths involving opioids (including prescription opioids and illegal opioids like heroin and illicitly manufactured fentanyl) was 5 times higher than in 1999.
             On average, 115 Americans die every day from an opioid overdose.1
-        </p> 
-        </div> 
+        </p>
+        </div>
     <div class="row">
     <div class="col-sm-4">
           <h4>Age Distribution</h4>
@@ -60,32 +59,32 @@
     <script src="static/js/barChart.js"></script>
     <script src="static/js/donutChart.js"></script>
     <script src="static/js/scatter.js"></script>
-           <br>   
-     
-   <div class="input-group-prepend">      
+           <br>
+
+   <div class="input-group-prepend">
     {% if session_username is defined %}
-    
-    
+
+
     <form action="/logout" method="POST">
-      <button type="submit" class="btn btn-secondary btn-lg js-scroll-trigger"> &nbsp;Log out &nbsp; </button> 
+      <button type="submit" class="btn btn-secondary btn-lg js-scroll-trigger"> &nbsp;Log out &nbsp; </button>
     </form>
 
     {% else %}
-  <!-- 
+  <!--
     <form action="/signin" method="GET">
-      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> &nbsp; Log in &nbsp; </button> 
-    </form>&nbsp; 
+      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> &nbsp; Log in &nbsp; </button>
+    </form>&nbsp;
     <form action="/register" method="GET">
-      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> Sign up </button> 
+      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> Sign up </button>
     </form>
  -->
-{% endif %}      
+{% endif %}
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp;
 
 </div>
 </header>
@@ -104,10 +103,10 @@
 	 </div>
   </div>
 
-<script src="static/js/donutChart.js"></script> 
-<script src="static/js/scatter.js"></script> 
-<script src="static/js/leaflet.js"></script> 
-<script src="static/js/main_map.js"></script> 
+<!--<script src="static/js/donutChart.js"></script>
+<script src="static/js/scatter.js"></script>
+<script src="static/js/leaflet.js"></script>
+<script src="static/js/main_map.js"></script>
 <script src="static/js/pie_and_hist.js"></script>
-<script src="static/js/stationMap.js"></script> 
+<script src="static/js/stationMap.js"></script>-->
 {% endblock %}

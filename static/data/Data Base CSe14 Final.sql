@@ -4,8 +4,8 @@ CREATE TABLE users (
 	uid SERIAL NOT NULL PRIMARY KEY,
     username text not null,
     password text not null,
-	first_name TEXT NULL,
-	last_name TEXT NULL,
+    first_name TEXT NULL,
+    last_name TEXT NULL,
     age integer null,
     drug_type text null,
     use_duration decimal null,
@@ -18,7 +18,8 @@ CREATE TABLE users (
     copay_or_coinsurance text null,
     personal_spending_per_year decimal null,
     total_spending decimal null,
-    income decimal null
+    income decimal null,
+    est_settle decimal null
 );
 
 DROP TABLE IF EXISTS consumption_state;

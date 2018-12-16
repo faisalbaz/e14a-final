@@ -19,7 +19,7 @@
       <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
    <!--
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      Optional theme 
+      Optional theme
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     -->
       <!-- Latest compiled and minified JavaScript -->
@@ -33,7 +33,7 @@
     <!-- Custom scripts for this template -->
     <link href="{{ url_for('static', filename='js/stylish-portfolio.min.js') }}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
 
           {% if title %}
           <title>{{ title }} - Final</title>
@@ -53,19 +53,31 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/index">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/add-user">Add User</a>
-                    <a class="nav-item nav-link" href="#">Visualizations</a>
-                    <a class="nav-item nav-link" href="#">More info</a>
-                    <a class="nav-item nav-link" href="#">Historic Stats</a>
-                    
+                    <a class="nav-item nav-link" href="/test">Visualizations</a>
+                    <!--<a class="nav-item nav-link" href="#">More info</a>
+                    <a class="nav-item nav-link" href="#">Historic Stats</a>-->
+                    {% if session_username is defined %}
+                      <a class="nav-item nav-link" href="{{url_for('profile', username=session_username)}}">Your Profile</a>
+                      <!--<a class="nav-item nav-link"><form action="/profile" style="margin-bottom: 0px;" method="POST">
+                        <button type="submit"> Your Profile </button>
+                      </form></a>-->
+                      <!--<a class="nav-item nav-link" href="/add_user">Complete Registration</a>-->
+                      <a class="nav-item nav-link" href="{{url_for('add_user', username=session_username)}}">Update Profile</a>
+                    {% endif %}
+
                   </div>
                 </div>
-                <a class="btn btn-warning btn-sm js-scroll-trigger" href="/login">Login</a>
-                      <a class="btn btn-primary btn-sm js-scroll-trigger" href="/signup">Register</a>
-                      <a class="btn btn-secondary btn-sm js-scroll-trigger" href="/logout">Log out</a>
+                  {% if session_username is defined %}
+                    <form action="/logout" style="margin-bottom: 0px;" method="POST">
+                      <button type="submit" class="btn btn-secondary btn-sm js-scroll-triggerr"> Log out </button>
+                    </form>
+                  {% else %}
+                    <a class="btn btn-warning btn-sm js-scroll-trigger" href="/login">Login</a>
+                    <a class="btn btn-primary btn-sm js-scroll-trigger" href="/signup">Register</a>
+                  {% endif %}
               </nav>
-            
-            <!-- navbar 
+
+            <!-- navbar
             <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <a class="navbar-brand" href="#">Opioid Crisis</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,10 +119,21 @@
                       <li><a class="btn btn-primary btn-sm js-scroll-trigger" href="/register">Register</a></li>
                       <li><a class="btn btn-secondary btn-sm js-scroll-trigger" href="/logout">Sign out</a></li>
                 </ul>
-                                  
+
             </nav>-->
             <hr>
-        
+
+            <!-- Add Flash messages  -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+
             {% block content %}
             {% endblock %}
 

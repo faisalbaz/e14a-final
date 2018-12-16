@@ -1,22 +1,37 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<header class="masthead d-flex">
+<h1>{{user.username}}'s Profile</h1>
+<h3 style="color: green;">Estimate Settlement: {{user.est_settle}}</h3>
+<header class="masthead d-flex" style="padding-top: 32px;">
       <div class="container text-center my-auto">
-       
-	<h4><a href="{{ url_for('index') }}">Home</a></h4>
-	<h1>{{user.username}} 's Posts </h1>
 
+        <a class="btn btn-secondary btn-lg js-scroll-trigger" style="background-color: red;" href="{{url_for('add_user', username=session_username)}}">Complete Registration</a>
 
   <div class="container text-center my-auto">
      <br>
         <div class="col-lg-8 mx-auto" class="page-title">
-             
+
               <div style="padding-top:30;
               padding-bottom:30;
               background-color:#ffffff55;
               -moz-border-radius: 5px;
               -webkit-border-radius: 5px;">
+              <p class="mb-1">First Name: {{user.first_name}}</p>
+              <p class="mb-1">Last Name: {{user.last_name}}</p>
+              <p class="mb-1">State: {{user.state}}</p>
+              <p class="mb-1">Zipcode: {{user.zipcode}}</p>
+              <p class="mb-1">Age: {{user.age}}</p>
+              <p class="mb-1">Gender: {{user.gender}}</p>
+              <p class="mb-1">Drug Type: {{user.drug_type}}</p>
+              <p class="mb-1">Years of Use: {{user.use_duration}}</p>
+              <p class="mb-1">Insurance Type: {{user.med_insurer}}</p>
+              <p class="mb-1">Year Insured: {{user.year_signed_up}}</p>
+              <p class="mb-1">Years Since Start of Litigation: {{user.years_from_first_litigation}}</p>
+              <p class="mb-1">Copay or Co-Insurance: {{user.copay_or_coinsurance}}</p>
+              <p class="mb-1">How much do you spend per year?: {{user.personal_spending_per_year}}</p>
+              <p class="mb-1">Annual Income: {{user.income}}</p>
+
               {% for p in posts %}
                 <p class="mb-1">Author@{{ p.author }}: {{ p.content }}</p>
               {% endfor %}
@@ -25,18 +40,6 @@
              <br>
           </div>
 
-    
-   {% if followed is defined %}
-   		{% if followed %}
-   			<form action="/unfollow/{{user.username}}" method="POST">
-        		<button type="submit" class="btn btn-primary btn-xl js-scroll-trigger"> Unfollow </button> 
-      		</form>
-   		{% else %}
-   			<form action="/follow/{{user.username}}" method="POST">
-        		<button type="submit" class="btn btn-secondary btn-xl js-scroll-trigger"> Follow </button> 
-      		</form>
-   		{% endif %}
-   {% endif %}
 
  </div>
 </header>
