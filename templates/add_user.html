@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main class="container add-user-section">
+<div class="section-content">
+    <div class="form-style-8">
+    <h2>Create a new user</h2>
+
+    <form method="POST" action="/add-user">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.username.label }}
+
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            {{ form.first_name.label }}
+
+            {% if form.first_name.errors %}
+                {% for error in form.first_name.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.first_name(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.last_name.label }}
+
+            {% if form.last_name.errors %}
+                {% for error in form.last_name.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.last_name(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.state.label }}
+
+            {% if form.state.errors %}
+                {% for error in form.state.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.state(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.zipcode.label }}
+
+            {% if form.zipcode.errors %}
+                {% for error in form.zipcode.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.zipcode(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.age.label }}
+
+            {% if form.age.errors %}
+                {% for error in form.age.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.age(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.gender.label }}
+
+            {% if form.gender.errors %}
+                {% for error in form.gender.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.gender(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.drug_type.label }}
+
+            {% if form.drug_type.errors %}
+                {% for error in form.drug_type.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.drug_type(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.use_duration.label }}
+
+            {% if form.use_duration.errors %}
+                {% for error in form.use_duration.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.use_duration(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.med_insurer.label }}
+
+            {% if form.med_insurer.errors %}
+                {% for error in form.med_insurer.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.med_insurer(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.year_signed_up.label }}
+
+            {% if form.year_signed_up.errors %}
+                {% for error in form.year_signed_up.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.year_signed_up(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.years_from_first_litigation.label }}
+
+            {% if form.years_from_first_litigation.errors %}
+                {% for error in form.years_from_first_litigation.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.years_from_first_litigation(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.copay_or_coinsurance.label }}
+
+            {% if form.copay_or_coinsurance.errors %}
+                {% for error in form.copay_or_coinsurance.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.copay_or_coinsurance(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.personal_spending_per_year.label }}
+
+            {% if form.personal_spending_per_year.errors %}
+                {% for error in form.personal_spending_per_year.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.personal_spending_per_year(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.income.label }}
+
+            {% if form.income.errors %}
+                {% for error in form.income.errors %}
+                <p class="error-message">[{{ error }}]</p>
+                {% endfor %}
+            {% endif %}
+
+            {{ form.income(class="form-control") }}
+        </div>
+
+
+        {{ form.submit(class="btn btn-primary btn-xl")}}
+    </form>
+</div>
+</div>
+</main>
+{% endblock %}

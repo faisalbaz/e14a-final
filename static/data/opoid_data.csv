@@ -1,0 +1,3 @@
+,username,password,first_name,last_name,state,zipcode,age,gender,drug_type,use_duration,med_insurer,year_signed_up,years_from_first_litigation,copay_or_coinsurance,personal_spending_per_year,total_spending,income
+0,user0@yahoo.com,1234,User0,Last0,VA,12345,79,Male,METHADONE,22.4,Other,4,1,20,1200,1000,35000
+1,user1@yahoo.com,1234,User0,Last1,MD,54321,41,Male,OXYCODONE,7.42,Medicaid,5,5,35,800,2000,42000

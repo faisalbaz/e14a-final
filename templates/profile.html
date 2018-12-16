@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<header class="masthead d-flex">
+      <div class="container text-center my-auto">
+       
+	<h4><a href="{{ url_for('index') }}">Home</a></h4>
+	<h1>{{user.username}} 's Posts </h1>
+
+
+  <div class="container text-center my-auto">
+     <br>
+        <div class="col-lg-8 mx-auto" class="page-title">
+             
+              <div style="padding-top:30;
+              padding-bottom:30;
+              background-color:#ffffff55;
+              -moz-border-radius: 5px;
+              -webkit-border-radius: 5px;">
+              {% for p in posts %}
+                <p class="mb-1">Author@{{ p.author }}: {{ p.content }}</p>
+              {% endfor %}
+
+            </div>
+             <br>
+          </div>
+
+    
+   {% if followed is defined %}
+   		{% if followed %}
+   			<form action="/unfollow/{{user.username}}" method="POST">
+        		<button type="submit" class="btn btn-primary btn-xl js-scroll-trigger"> Unfollow </button> 
+      		</form>
+   		{% else %}
+   			<form action="/follow/{{user.username}}" method="POST">
+        		<button type="submit" class="btn btn-secondary btn-xl js-scroll-trigger"> Follow </button> 
+      		</form>
+   		{% endif %}
+   {% endif %}
+
+ </div>
+</header>
+
+
+{% endblock %}

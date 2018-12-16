@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<header>
+  <div class="container text-center my-auto">
+       
+    {% if session_username is defined %}
+    
+    <h1 class="mb-1">Hi, {{ session_username }} !</h1>
+    
+    {% else %}
+    {% endif %}
+    <h1 class="mb-1">Welcome, {{ session_username }} ! </h1>
+            
+          <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <header class="masthead d-flex">
+      <div class="container text-center my-auto">
+          <div class="page-title">
+              <h1 class="mb-1">Opioid Crisis - United States</h1>
+              <h3 id='total_users_text' class="text-center">
+                Number of Class Action Claimants:
+            </h3>
+          </div>
+          <div style="padding-top:5;
+          padding-bottom:5;
+          background-color:#ffffff55;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;">
+          This application will provide some information on Opioid Crisis in United States with supportive data between 2009 - 2016.
+          <p style="text-align: left;"> Drug overdose deaths continue to increase in the United States.
+
+            From 1999 to 2016, more than 630,000 people have died from a drug overdose.
+            Around 66% of the more than 63,600 drug overdose deaths in 2016 involved an opioid.
+            In 2016, the number of overdose deaths involving opioids (including prescription opioids and illegal opioids like heroin and illicitly manufactured fentanyl) was 5 times higher than in 1999.
+            On average, 115 Americans die every day from an opioid overdose.1
+        </p> 
+        </div> 
+    <div class="row">
+    <div class="col-sm-4">
+          <h4>Age Distribution</h4>
+      <svg width="400" height="300" id="barChart"></svg>
+    </div>
+
+    <div class="col-sm-4">
+          <h4>Opioid Type Usage</h4>
+      <svg width="300" height="300" id="donutChart"></svg>
+    </div>
+
+    <div class="col-sm-4">
+          <h4 class="lg-padding">Opioids vs. Other drugs</h4>
+      <svg width="400" height="300" id="scatter"></svg>
+    </div>
+
+   </div>
+  </div>
+</header>
+
+    <script src="static/js/barChart.js"></script>
+    <script src="static/js/donutChart.js"></script>
+    <script src="static/js/scatter.js"></script>
+           <br>   
+     
+   <div class="input-group-prepend">      
+    {% if session_username is defined %}
+    
+    
+    <form action="/logout" method="POST">
+      <button type="submit" class="btn btn-secondary btn-lg js-scroll-trigger"> &nbsp;Log out &nbsp; </button> 
+    </form>
+
+    {% else %}
+  <!-- 
+    <form action="/signin" method="GET">
+      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> &nbsp; Log in &nbsp; </button> 
+    </form>&nbsp; 
+    <form action="/register" method="GET">
+      <button type="submit" class="btn btn-primary btn-lg js-scroll-trigger"> Sign up </button> 
+    </form>
+ -->
+{% endif %}      
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; 
+
+</div>
+</header>
+
+   <!--  <div class="row">
+ <div class="col-sm-4">
+          <h4>Overdose Deaths by Age</h4>
+      <svg width="300" height="300" id="donutChart"></svg>
+    </div>
+
+    <div class="col-sm-4">
+          <h4 class="lg-padding">Opoids vs. Other drugs</h4>
+      <svg width="400" height="300" id="scatter"></svg>
+    </div>
+-->
+	 </div>
+  </div>
+
+<script src="static/js/donutChart.js"></script> 
+<script src="static/js/scatter.js"></script> 
+<script src="static/js/leaflet.js"></script> 
+<script src="static/js/main_map.js"></script> 
+<script src="static/js/pie_and_hist.js"></script>
+<script src="static/js/stationMap.js"></script> 
+{% endblock %}
