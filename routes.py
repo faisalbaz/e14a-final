@@ -5,6 +5,7 @@ from forms import AddUserForm,SignupForm, LoginForm
 from passlib.hash import sha256_crypt
 import numpy as np
 import pickle
+from utils import onehotCategorical, onehotState
 from flask_heroku import Heroku
 
 app = Flask(__name__)
@@ -79,26 +80,28 @@ def add_user(username):
             session_user.personal_spending_per_year= personal_spending_per_year
             session_user.total_spending=total_spending
             session_user.income= income
-            test_pred = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 51331, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 473.5694972, 0, 0, 0, 1, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-            prediction = model.predict(test_pred.reshape(1, -1))*473.5694972
+
+            if gender == "M":
+                gender_1hot = np.array([0, 1])
+            else:
+                gender_1hot = np.array([1, 0])
+
+            state_1hot = onehotState(state)
+
+            years_int = int(years_from_first_litigation)
+            years_1hot= onehotCategorical(years_int, 20)
+            print(state_1hot)
+            #test_pred = np.array([0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 36, 56361, 305.5437079])
+            #test_pred = np.hstack([gender_1hot, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], years_1hot, [age, income, total_spending]])
+            test_pred = np.hstack([gender_1hot, state_1hot, years_1hot, [age, income, total_spending]])
+            #prediction = model.predict(test_pred.reshape(1, -1))*473.5694972
+            prediction = model.predict(test_pred.reshape(1, -1))*total_spending
             session_user.est_settle = float(np.squeeze(prediction.round(2)))
             #settle = "$" + str(np.squeeze(prediction.round(2)))
             db.session.commit()
             #return redirect('/index')
             return redirect(url_for('profile', username=session_user.username))
-        #return render_template('add_user.html', form=form)
 
-
-        #else:
-            #return redirect(url_for('login'))
-
-        #             new_user = User(username=username, password=password, first_name=first_name, last_name=last_name, state=state, zipcode=zipcode, age=age, gender=gender, drug_type=drug_type, use_duration=use_duration, med_insurer=med_insurer, year_signed_up=year_signed_up, years_from_first_litigation=years_from_first_litigation, copay_or_coinsurance=copay_or_coinsurance,personal_spending_per_year=personal_spending_per_year, estimated_opioid_spending_per_year=estimated_opioid_spending_per_year,income=income)
-        #             db.session.add(new_user)
-        #             db.session.commit()
-        #             return redirect(url_for('index'))
-        #     return render_template('add_user.html', form=form, title='Add User Information', session_username=session_user.username)
-        # else:
-        #     return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

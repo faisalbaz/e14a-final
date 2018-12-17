@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<style>
+  p { color: #333333; font-family: Georgia, serif; font-size: 18px; line-height: 28px; margin: 0 0 28px; }
+  </style>
+
 <h1>{{user.username}}'s Profile</h1>
-<h3 style="color: green;">Estimate Settlement: {{user.est_settle}}</h3>
+<h3 style="color: green;">Estimate Settlement: ${{user.est_settle}}</h3>
+<p style="text-align: left;">
+              This estimation is based on a few characteristics that you have shared during the sign-up
+              process. As cutting-edge as the machine learning technique we apply here to estimate your
+              settlement, the data are imperfect (we use tobacco settlement data to estimate your opioid
+              abuse settlement) and the underlying assumptions are highly theoretical. Therefore, please
+              view this settlement as simply a work in progress and by no means a definitive measure of
+              your damage nor Defendants’ liabilities. 
+            </p>
 <header class="masthead d-flex" style="padding-top: 32px;">
       <div class="container text-center my-auto">
 
