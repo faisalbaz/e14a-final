@@ -60,7 +60,6 @@ def add_user(username):
             copay_or_coinsurance = request.form['copay_or_coinsurance']
             personal_spending_per_year = request.form['personal_spending_per_year']
             income = request.form['income']
-<<<<<<< HEAD
             if copay_or_coinsurance == 'copay':
                 total_spending = float(personal_spending_per_year)/.11
             else:
@@ -99,11 +98,6 @@ def add_user(username):
             prediction = model.predict(test_pred.reshape(1, -1))*total_spending
             session_user.est_settle = float(np.squeeze(prediction.round(2)))
             #settle = "$" + str(np.squeeze(prediction.round(2)))
-=======
-            new_user = User(username=username, password=password, first_name=first_name, last_name=last_name, state=state, zipcode=zipcode, age=age, gender=gender, drug_type=drug_type, use_duration=use_duration, med_insurer=med_insurer, year_signed_up=year_signed_up, years_from_first_litigation=years_from_first_litigation, copay_or_coinsurance=copay_or_coinsurance,personal_spending_per_year=personal_spending_per_year, income=income)
-            #new_user = User(username=username, first_name=first_name, last_name=last_name,address=address, city=city, state=state, zipcode=zipcode, insurancetype=insurancetype, age=age)
-            db.session.add(new_user)
->>>>>>> 0d0b778fd602c505ed0c36e410f4d09b491af988
             db.session.commit()
             #return redirect('/index')
             return redirect(url_for('profile', username=session_user.username))

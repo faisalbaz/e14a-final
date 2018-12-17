@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<<<<<<< HEAD
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 
@@ -8,16 +7,6 @@
 p { color: #333333; font-family: Georgia, serif; font-size: 18px; line-height: 28px; margin: 0 0 28px; }
 </style>
 
-=======
-<script src="http://d3js.org/d3.v4.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-<style>
-p { color: #333333; font-family: Georgia, serif; font-size: 18px; line-height: 28px; margin: 0 0 28px; }
-
-
-</style>
->>>>>>> 0d0b778fd602c505ed0c36e410f4d09b491af988
 <header>
   <div class="container text-center my-auto">
 
@@ -28,7 +17,6 @@ p { color: #333333; font-family: Georgia, serif; font-size: 18px; line-height: 2
     {% else %}
       <h1 class="mb-1">Welcome! </h1>
     {% endif %}
-<<<<<<< HEAD
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <header class="masthead d-flex" style="padding-top: 32px;">
@@ -89,70 +77,6 @@ This analysis includes data of overdose death rate across the nation from 1999 t
 </p>-->
 </div>
 </div>
-=======
-    <h1 class="mb-1">Welcome, {{ session_username }} ! </h1>
-            
-          <script src="https://d3js.org/d3.v4.min.js"></script>
-
-    <header class="masthead d-flex">
-      <div class="container text-center my-auto">
-          <div class="page-title">
-              <h1 class="mb-1">Opioid Crisis - United States</h1>
-              <h3 id='total_users_text' class="text-center">
-                Number of Class Action Claimants:
-            </h3>
-          </div>
-          <div style="padding-top:5;
-          padding-bottom:5;
-          background-color:#ffffff55;
-          -moz-border-radius: 5px;
-          -webkit-border-radius: 5px;">
-          <div>
-            <p style="text-align: left;"> 
-
-          UPDATE: The Claims Administrator is in the process of auditing the claims received and issuing notice to claimants with deficient claim forms. This process is expected to be completed and distribution is anticipated to occur in the first quarter of 2020.
-        </p></div>
-          <p style="text-align: left;"> If you purchased drugs with the following main active ingredients: Oxycodone, Hydrocodone, Morphine, Codeine, Methadone, Gamma Hydroxybutyric Acid, Amphetamine, and Methylphenidate, from one of or all of these five manufacturers: Bunny Pharmaceutical Corp., Magic Pharma, Inc., Biotrick Limited,  Tensyl Pharmaceuticals Inc., and Saloz Inc., you may be eligible to receive a part of the settlement.
-        </p> 
-        <div>
-          <p style="text-align: left;">
-            The lawsuit claims that Bunny Pharmaceutical Corp., Magic Pharma, Inc., Biotrick Limited,  Tensyl Pharmaceuticals Inc., and Saloz Inc. ( “Defendants”) downplayed the risk of addiction for a variety of prescription opioids and instructed doctors as well as  patients to overlook signs of addiction. The Defendants deny these allegations.
- 
-What does the settlement provide?
-Settlement will be partly shared with Medicare, Medicaid, and your insurance plan to cater for your addiction-related medical need. Class Counsel will ask the Court to award attorneys’ fees in an amount not to exceed one-third of the Settlement Fund, plus interest, litigation expenses and incentive payments to the Class Representatives. After these deductions, the remainder of the Settlement Fund will be distributed pro rata to Class Members who file a valid claim form. The amount of money you are eligible to receive will depend on how much you (and other consumers) paid for at-issue products.
- 
-Who is included?
-Generally, you are included in the Classes if you purchased, paid and/or provided reimbursement for some or all of the drugs with active ingredients listed above in AL, AK, AZ, AR, CA, FL, HI, ID, IL, IA, KS, LA, ME, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OK, OR, RI, SD, TN, UT, VT, WA, WV, WI, WY, DC and PR, from Jan 1, 2009 through Dec 31, 2018, inclusive.
-
-          </p>
-        </div>
-        </div> 
-    <div class="row">
-      
-    <div class="col-sm-4">
-          <h4>Age Distribution</h4>
-      <svg width="400" height="300" id="barChart"></svg>
-    </div>
-    <p style="text-align: left;">
-        Age groups from 25 to 45 represented more than half of the class members. This is consistent with what we observe from many studies on opioid consumption and overdose. For example, a study published in 2018 by Kaiser Family Foundation shows that up to 50 percent of deaths caused by opioid overdose fall within the 25-34 and 35-44 age groups.  Another review published by the NIH, which synthesizes multiple studies on the impact of unregulated prescription drug use on the U.S. population (not limited to opioid), concludes that prescription abuse affects young adults the most.  The review cites an analysis from Rabiner et al. 2018, which shows that adults of the 18-25 age group are much more likely to abuse prescription drug compared to other age groups.  The study also shows that a few unintended use of prescription drug includes “get high,” “relax,” “experiment,” and “deal with problems,” etc. The similarity in the age group outcomes of the Rabiner and this analysis on class members unveils some of the underlying motivations of opioid abuse.”
-    </p>
-    <div class="col-sm-4">
-          <h4>Opioid Type Usage</h4>
-      <svg width="300" height="300" id="donutChart"></svg>
-    </div>
-    <p style="text-align: left;">
-    Majority of class members claimed damage for use of Oxycodone.  This is similar to the trend we observed from DEA ARCOS data, where more than 50 percent of opioid landed at retail facilities is oxycodone from 2006 to 2015.  However, DEA reported a much higher frequency for Hydrocodone and Morphine, while the next two most abused drugs observed from class data are Gamme Hydroxybutyric and Methylphenidate. Visualization and text description will continue to be updated as more class members are registered with this site.
-</p>
-    <div class="col-sm-4">
-          <h4 class="lg-padding">Opioids vs. Other drugs</h4>
-      <svg width="400" height="300" id="scatter"></svg>
-    </div>
-    <p style="text-align: left;">
-    This analysis includes data of overdose death rate across the nation from 1999 to 2016 and not limited to class member.  Between 1999 and 2007, the highest overdose death rate is observed in some of the Midwestern and Mountain states, including North Dakota, South Dakota, Montana, and Wyoming. From 2007 to 2016, death rate surged in the New England states as well as some Midwestern states such as Ohio and Michigan. Overdose rate remains relatively low over the entire period among the largest states including Texas and California.
-</p>
-   </div>
-  </div>
->>>>>>> 0d0b778fd602c505ed0c36e410f4d09b491af988
 </header>
 
     <script src="static/js/barChart.js"></script>
